@@ -2,7 +2,7 @@ import React from 'react';
 
 function Movie({movie}) {
     const { titulo, urlDescarga, urlImage } = movie;
-    const imagen = `http://jganchozo01-001-site3.ctempurl.com/Images/${urlImage}`;
+    const imagen = `https://testservicesapi.azurewebsites.net/Images/${urlImage}`;
     return (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
             <div className="card">
