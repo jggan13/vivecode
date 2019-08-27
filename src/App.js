@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import MoviesList from './components/MoviesList';
 import Header from './components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import Search from './components/Search';
 
 
@@ -45,26 +46,30 @@ function App() {
 
   return (
     <Fragment>
+       <Router>
    <Header />
     <div className="app container">
     
    
-     <div className="row justify-content-center">
-        <MoviesList 
-          movies={movies}
-        />
+        <div className="row justify-content-center">
+         
+            <Switch>
+              <Route exact path="/" component={() => <MoviesList movies={movies} />} />
+              
+            </Switch>
+         
+          {(currentPage === 1) ? null : (
+            <button type="button" onClick={paginaAnterior} className="btn btn-info mr-1 mb-5">&laquo; Previous</button>
+          )}
 
-        {(currentPage === 1) ? null : (
-          <button type="button" onClick={paginaAnterior} className="btn btn-info mr-1 mb-5">&laquo; Previous</button>
-        )}
-        
-        {(currentPage === totalPages) ? null : (
-          <button type="button" onClick={paginaSiguiente} className="btn btn-info mb-5">Next &raquo;</button>
-        )}
-        
-      </div>
+          {(currentPage === totalPages) ? null : (
+            <button type="button" onClick={paginaSiguiente} className="btn btn-info mb-5">Next &raquo;</button>
+          )}
+
+        </div>
 
     </div>
+    </Router>
     </Fragment>
   );
 }
