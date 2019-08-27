@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
 
     const getMovies = async () => {
-      let url = `http://jganchozo01-001-site6.ctempurl.com/api/movies/${currentPage}`;
+      let url = `https://testservicesapi.azurewebsites.net/api/movies/${currentPage}`;
       const resultado = await axios.get(url); 
       console.log(resultado.data.Total);
       setMovies(resultado.data.Data);
