@@ -54,7 +54,7 @@ function App() {
         <div className="row justify-content-center">
          
             <Switch>
-              <Route exact path="/" component={() => <MoviesList movies={movies} />} />
+              <Route exact path="/" render={() => <MoviesList movies={movies} />} />
               
             </Switch>
          
