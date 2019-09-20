@@ -3,6 +3,7 @@ import axios from 'axios';
 import MoviesList from './components/MoviesList';
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Spinner from './components/Spinner';
 // import Search from './components/Search';
 
 
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
 
     const getMovies = async () => {
-      let url = `https://testservicesapi.azurewebsites.net/api/movies/${currentPage}`;
+      let url = `https://espamidiomas.azurewebsites.net/api/movies/${currentPage}`;
       const resultado = await axios.get(url); 
       console.log(resultado.data.Total);
       setMovies(resultado.data.Data);
@@ -52,7 +53,7 @@ function App() {
     
    
         <div className="row justify-content-center">
-         
+         <Spinner />
             <Switch>
               <Route exact path="/" render={() => <MoviesList movies={movies} />} />
               
