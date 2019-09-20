@@ -53,7 +53,7 @@ function App() {
     
    
         <div className="row justify-content-center">
-         <Spinner />
+         {/* <Spinner /> */}
             <Switch>
               <Route exact path="/" render={() => <MoviesList movies={movies} />} />
               
